@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HttpClient {
 
@@ -38,6 +39,8 @@ public class HttpClient {
           new TypeReference<>(){
           }
   );
+  posts = posts.stream().filter(value -> value.getUpvotes() != null)
+                  .collect(Collectors.toList());
   posts.forEach(System.out::println);
   response.close();
   httpClient.close();

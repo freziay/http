@@ -17,6 +17,7 @@ public class Post {
         this.text = text;
         this.type = type;
         this.user = user;
+
         this.upvotes = upvotes;
 
     }
