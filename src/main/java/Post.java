@@ -1,36 +1,54 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Post {
-    private final int userId;
-    private final int id;
-    private final String title;
-    private final String body;
+    private final String id;
+    private final String text;
+    private final String type;
+    private final String user;
+    private final String upvotes;
 
     public Post(
-            @JsonProperty("userId") int userId,
-            @JsonProperty("id") int id,
-            @JsonProperty("title") String title,
-            @JsonProperty("body") String body){
-        this.userId = userId;
+            @JsonProperty("id") String id,
+            @JsonProperty("text") String text,
+            @JsonProperty("type") String type,
+            @JsonProperty("user") String user,
+            @JsonProperty("upvotes") String upvotes) {
         this.id = id;
-      this.title = title;
-      this.body = body;
+        this.text = text;
+        this.type = type;
+        this.user = user;
+        this.upvotes = upvotes;
 
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getText() {
+        return text;
     }
 
-    public String getBody() {
-        return body;
+    public String getType() {
+        return type;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getUpvotes() {
+        return upvotes;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", type='" + type + '\'' +
+                ", user='" + user + '\'' +
+                ", upvotes='" + upvotes + '\'' +
+                '}';
     }
 }
